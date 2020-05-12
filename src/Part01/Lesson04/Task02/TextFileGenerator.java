@@ -1,12 +1,18 @@
 package Part01.Lesson04.Task02;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * TextFileGenerator.
- *
+ * <p>
  * Создать генератор текстовых файлов, работающий по следующим правилам:
- *
+ * <p>
  * Предложение состоит из 1<=n1<=15 слов. В предложении после произвольных слов могут находиться запятые.
  * Слово состоит из 1<=n2<=15 латинских букв
  * Слова разделены одним пробелом
@@ -117,16 +123,35 @@ public class TextFileGenerator {
     }
 
     public static void main(String[] args) {
-        int incr = 0;
-        for (int b = 0; b <= 1000; b++) {
-            if (incr % 20 == 0)
-                incr++;
-            System.out.println(paragraphGen());
-        }
+        getFiles("C:\\Users\\Roman\\Desktop\\Testo.txt", 2);
     }
 
-    public void getFiles(String path, int n, int size, String[] words, int probability) {
+    public static void getFiles(String path, int n) {
+        String[] patharr = path.split("\\.");
 
+        for (int q = 0; q < n; q++) {
+            String path2 = patharr[0] + q + "." + patharr[1];
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(path2))) {
+                List<StringBuilder> list = new ArrayList<>();
+                int incr = 0;
+                for (int b = 0; b <= 1000; b++) {
+                    if (incr % 20 == 0)
+                        incr++;
+                    list.add(paragraphGen());
+                    list.add(new StringBuilder("\n"));
+                }
+
+                for (StringBuilder str : list) {
+
+                    bw.write(String.valueOf(str));
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 }
