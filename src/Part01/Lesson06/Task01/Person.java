@@ -1,6 +1,5 @@
 package Part01.Lesson06.Task01;
 
-import java.io.Serializable;
 
 /**
  * Person.
@@ -8,18 +7,17 @@ import java.io.Serializable;
  *
  * @author Roman Khokhlov
  */
-public class Person implements Serializable {
-    private static final long serialVersionUID = 100100100100L;
+public class Person{
     private int id;
     private int age;
     private String name;
-    private Course course;
+//    private Course course;
 
-    public Person(int id, int age, String name, Course course) {
+    public Person(int id, int age, String name) {
         this.id = id;
         this.age = age;
         this.name = name;
-        this.course = course;
+//        this.course = course;
     }
 
     @Override
@@ -27,8 +25,9 @@ public class Person implements Serializable {
         return "Person{" +
                 "id=" + id +
                 ", age=" + age +
-                ", name='" + name + '\'' +
-                ", course=" + course +
+                ", name='" + name +
+//                ", course='" + course +
+                '\'' +
                 '}';
     }
 }

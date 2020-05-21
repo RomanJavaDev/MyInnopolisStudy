@@ -7,14 +7,12 @@ import java.io.Serializable;
  *
  * @author Roman Khokhlov
  */
-public class Course implements Serializable {
-    public static final long serialVersionUID = 123L;
-    private String name;
+public class Course {
 
+    private String name;
     public Course(String name) {
         this.name = name;
     }
-
     @Override
     public String toString() {
         return '\'' + name + '\'' +
