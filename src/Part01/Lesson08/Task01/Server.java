@@ -129,7 +129,7 @@ public class Server {
             for (String name : connectionMap.keySet()) {
                 if (!name.equals(userName)) {
                     connection.send(new Message(MessageType.USER_ADDED, name));
-//                    connectionMap.get(name).send(new Message(MessageType.USER_ADDED, "Добавлен новый пользователь с именем " + userName));
+                    connectionMap.get(name).send(new Message(MessageType.USER_ADDED, "Добавлен новый пользователь с именем " + userName));
                 }
             }
 
