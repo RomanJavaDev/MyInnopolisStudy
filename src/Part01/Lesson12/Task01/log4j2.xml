@@ -15,7 +15,7 @@
         <Console name="stdout" target="SYSTEM_OUT">
             <PatternLayout pattern="%m%n"/>
         </Console>
-        <JDBC name="APP_LOGS" tableName="mylogs">
+        <JDBC name="db" tableName="mylogs">
             <DriverManager connectionString="jdbc:mysql://localhost:3306/APP_LOGS" driverClassName="com.mysql.jdbc.Driver"
                            username="root" password="roma"/>
             <Column name="LOG_ID" pattern="%u" isUnicode="false"/>
@@ -34,7 +34,7 @@
         <Logger name="src.Part01.Lesson12.Task01.MyOnlineShopWithLog4j" level="info" additivity="false">
             <AppenderRef ref="file2" level="INFO"/>
             <AppenderRef ref="stdout" level="INFO"/>
-            <AppenderRef ref="APP_LOGS" level="INFO"/>
+            <AppenderRef ref="db" level="INFO"/>
         </Logger>
     </Loggers>
 </Configuration>

@@ -33,11 +33,11 @@ public class MyOnlineShopWithLog4j {
                 try (ResultSet resultSet = statement.executeQuery("SELECT * FROM customers")) {
                     while (resultSet.next()) {
                         log.info("id: " + resultSet.getInt("id"));
-                        log.info("; firstName: " + resultSet.getString("firstName"));
-                        log.info("; lastName: " + resultSet.getString("lastName"));
-                        log.info("; address: " + resultSet.getString("address"));
-                        log.info("; phone: " + resultSet.getString("phone"));
-                        log.info("; email: " + resultSet.getString("email"));
+                        log.info("firstName: " + resultSet.getString("firstName"));
+                        log.info("lastName: " + resultSet.getString("lastName"));
+                        log.info("address: " + resultSet.getString("address"));
+                        log.info("phone: " + resultSet.getString("phone"));
+                        log.info("email: " + resultSet.getString("email"));
                     }
                 }
             }
