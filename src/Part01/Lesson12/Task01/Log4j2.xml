@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="file" fileName="Part01/Lesson12/Task01/log.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="file2" fileName="Part01/Lesson12/Task01/log2.log">
+            <MarkerFilter marker="consoleonly" onMatch="DENY" onMismatch="ACCEPT"/>
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n"/>
+        </Console>
+        <JDBC name="APP_LOGS" tableName="mylogs">
+            <DriverManager connectionString="jdbc:mysql://localhost:3306/APP_LOGS" driverClassName="com.mysql.jdbc.Driver"
+                           username="root" password="roma"/>
+            <Column name="LOG_ID" pattern="%u" isUnicode="false"/>
+            <Column name="ENTRY_DATE" isEventTimestamp="true" isUnicode="false"/>
+            <Column name="LOGGER" pattern="%logger" isUnicode="false"/>
+            <Column name="LOG_LEVEL" pattern="%level" isUnicode="false"/>
+            <Column name="MESSAGE" pattern="%m" isUnicode="false"/>
+            <Column name="EXCEPTION" pattern="%throwable " isUnicode="false"/>
+        </JDBC>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="file" level="DEBUG"/>
+            <AppenderRef ref="stdout" level="INFO"/>
+        </Root>
+        <Logger name="src.Part01.Lesson12.Task01.MyOnlineShopWithLog4j" level="info" additivity="false">
+            <AppenderRef ref="file2" level="INFO"/>
+            <AppenderRef ref="stdout" level="INFO"/>
+            <AppenderRef ref="APP_LOGS" level="INFO"/>
+        </Logger>
+    </Loggers>
+</Configuration>
