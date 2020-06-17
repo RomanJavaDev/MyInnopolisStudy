@@ -106,7 +106,6 @@ class MainTest {
     @Disabled
     @ParameterizedTest
     @ValueSource(strings = {"A", "B", "C"})
-        //@ArgumentsSource(CustomArgumentProvider.class)
         //@CsvSource({
         //            "1, 1, 1",
         //            "2, 3, 6"

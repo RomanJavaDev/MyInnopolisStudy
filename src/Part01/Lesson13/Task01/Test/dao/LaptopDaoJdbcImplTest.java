@@ -66,7 +66,7 @@ class LaptopDaoJdbcImplTest {
         verify(preparedStatement, times(1)).executeUpdate();
         assertAll("assert all",
                 () -> assertEquals(1L, result),
-                () -> assertNotEquals(1L, result)
+                () -> assertEquals(1L, result)
         );
     }
 

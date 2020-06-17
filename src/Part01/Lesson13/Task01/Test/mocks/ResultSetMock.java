@@ -58,7 +58,7 @@ public class ResultSetMock implements ResultSet {
     }
 
     @Override public int getInt(int columnIndex) throws SQLException {
-        return 4;
+        return columnIndex == 1 ? 4 : null;
     }
 
     @Override public long getLong(int columnIndex) throws SQLException {
@@ -70,7 +70,7 @@ public class ResultSetMock implements ResultSet {
     }
 
     @Override public double getDouble(int columnIndex) throws SQLException {
-        return 150000.00;
+        return columnIndex == 4 ? 150000.00 : null;
     }
 
     @Override public BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
