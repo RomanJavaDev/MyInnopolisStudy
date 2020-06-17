@@ -42,7 +42,7 @@ public class ResultSetMock implements ResultSet {
     }
 
     @Override public String getString(int columnIndex) throws SQLException {
-        return columnIndex == 2 ? "Iphone 2" : "Apple";
+        return columnIndex == 2 ? "Apple MacBook PRO" : "Laptop";
     }
 
     @Override public boolean getBoolean(int columnIndex) throws SQLException {
@@ -58,7 +58,7 @@ public class ResultSetMock implements ResultSet {
     }
 
     @Override public int getInt(int columnIndex) throws SQLException {
-        return columnIndex == 1 ? 4 : 25000;
+        return 4;
     }
 
     @Override public long getLong(int columnIndex) throws SQLException {
@@ -70,7 +70,7 @@ public class ResultSetMock implements ResultSet {
     }
 
     @Override public double getDouble(int columnIndex) throws SQLException {
-        return 0;
+        return 150000.00;
     }
 
     @Override public BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
